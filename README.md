@@ -42,3 +42,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+# Ts Notes
+调用函数的时候，和正常的js是一样的，不需要指定类型;
+#### function
+导出指定的function 
+```typescript
+let a = () => {}
+export { a }
+```
