@@ -3,7 +3,7 @@ export function Tab(props: {
   id: string;
   title: string;
   active: string;
-  toggleActive:(e:Event) => void
+  toggleActive?: (e: React.MouseEvent) => void;
 }) {
   const { id, title, active, toggleActive } = props;
   return (
@@ -15,18 +15,20 @@ export function Tab(props: {
 }
 export interface TabGroupProps {
   active: string;
+
+
 }
 interface TabGroupContainerProps {
   
 }
-const TabGroup: React.FC<TabGroupProps> = (props) => {
-  let toggleActive = (e, id) => {
+const TabGroup: React.FC<TabGroupProps> = ()=> {
+  let toggleActive = (e: any, id: string) => {
     e.preventDefault();
-    setActive(id);
+    // setActive(id);
   };
-  return React.Children.map(children, child => {
-    let enhancedChild = React.CloneElement(child, {
-      active: id,
+  return React.Children.map(props.children, child => {
+    let enhancedChild = React.cloneElement(child, {
+      active: child.id,
       toggleActive: toggleActive,
       newFn: 'hahahah'
     });
